@@ -1,66 +1,58 @@
-<div class="container">
-	<div class="story">
-		<div class="column-1">
-			<div class="part">게임</div>
-			<button class="page-button page-button-primary button-animation">빠른 매치</button>
-			<button class="page-button button-animation">사용자 지정 게임</button>
-			<button class="page-button button-animation">게임 탐색</button>
-			<button class="page-button button-animation">혼자서 플레이</button>
+<div class="story">
+	<div class="column-1">
+		<div class="part">게임</div>
+		<button class="page-button page-button-primary button-animation">빠른 매치</button>
+		<button class="page-button button-animation">사용자 지정 게임</button>
+		<button class="page-button button-animation">게임 탐색</button>
+		<button class="page-button button-animation">혼자서 플레이</button>
+	</div>
+	<div class="column-1">
+		<div class="part">
+			<span class="profile-picture" style="background-color: white; color: black;">북</span>
+			<span class="username">북극치타 🇰🇷</span>
 		</div>
-		<div class="column-1">
-			<div class="part">
-				<span class="profile-picture" style="background-color: white; color: black;">북</span>
-				<span class="username">북극치타 🇰🇷</span>
+		<div class="story">
+			<div class="rating column-1">
+				<div>레이팅</div>
+				<div class="big-number">1,293</div>
 			</div>
-			<div class="story">
-				<div class="rating column-1">
-					<div>레이팅</div>
-					<div class="big-number">1,293</div>
-				</div>
-				<div class="rating column-1">
-					<div>승률</div>
-					<div class="big-number">.592</div>
-				</div>
+			<div class="rating column-1">
+				<div>승률</div>
+				<div class="big-number">.592</div>
 			</div>
 		</div>
 	</div>
-	<div class="story">
-		<div class="column-1">
-			<div class="part">게임 기록</div>
-			<div class="games-container">
-				<table class="games">
-					<thead>
-						<tr>
-							<th>점유율</th>
-							<th>등수</th>
-							<th>날짜</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>59.19</td>
-							<td>2 / 4</td>
-							<td>2024-06-01</td>
-						</tr>
-						<tr>
-							<td>45.23</td>
-							<td>5 / 5</td>
-							<td>2024-05-28</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+</div>
+<div class="story">
+	<div class="column-1">
+		<div class="part">게임 기록</div>
+		<div class="games-container">
+			<table class="games">
+				<thead>
+					<tr>
+						<th>점유율</th>
+						<th>등수</th>
+						<th>날짜</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>59.19</td>
+						<td>2 / 4</td>
+						<td>2024-06-01</td>
+					</tr>
+					<tr>
+						<td>45.23</td>
+						<td>5 / 5</td>
+						<td>2024-05-28</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </div>
 
 <style>
-	.container {
-		max-width: 1280px;
-		margin: 0 auto;
-		padding: 24px;
-	}
-
 	.story {
 		display: flex;
 		flex-direction: row;
@@ -103,6 +95,8 @@
 	}
 
 	.page-button {
+		font-family: 'Diphylleia', serif;
+		font-weight: bold;
 		width: 100%;
 		padding: 24px;
 		font-size: 16px;
@@ -162,7 +156,7 @@
 	.games th,
 	.games td {
 		text-align: left;
-		padding: 8px 12px;
+		padding: 12px 18px;
 	}
 
 	.games thead {

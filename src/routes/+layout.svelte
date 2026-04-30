@@ -31,7 +31,7 @@
 
 <div class="container">
 	<div class="navigation">
-		<div class="logo">Grav</div>
+		<div class="logo"><a href="/">Grav</a></div>
 		<div class="links">
 			<div class="link"><a href="/play">플레이</a></div>
 		</div>
@@ -64,6 +64,8 @@
 		flex: 1;
 		max-height: 100vh;
 		overflow-y: auto;
+		max-width: 1280px;
+		margin: 0 auto;
 	}
 
 	.logo {
