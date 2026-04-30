@@ -5,11 +5,16 @@
 </script>
 
 <svelte:head>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Diphylleia&display=swap" rel="stylesheet" />
 	<style>
 		body {
 			margin: 0;
-			font-family: system-ui, sans-serif;
+			font-family: 'Diphylleia', serif;
 			overflow: hidden;
+			background-color: #333;
+			color: white;
 		}
 
 		a {
@@ -30,7 +35,7 @@
 		<div class="links">
 			<div class="link"><a href="/play">플레이</a></div>
 		</div>
-		<div class="footbar">Hello, world!</div>
+		<div class="footbar">여기에 프로필 표시</div>
 	</div>
 	<div class="content">
 		{@render children()}
@@ -45,7 +50,7 @@
 
 	.navigation {
 		height: 60px;
-		background-color: #333;
+		background-color: #111;
 		color: white;
 		padding: 20px 20px;
 		display: flex;
