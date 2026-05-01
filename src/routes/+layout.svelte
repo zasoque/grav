@@ -1,5 +1,6 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
+	import Profile from '$lib/components/Profile.svelte';
 
 	let { children } = $props();
 </script>
@@ -35,7 +36,9 @@
 		<div class="links">
 			<div class="link"><a href="/play">플레이</a></div>
 		</div>
-		<div class="footbar">여기에 프로필 표시</div>
+		<div class="footbar">
+			<Profile />
+		</div>
 	</div>
 	<div class="content">
 		{@render children()}
@@ -51,6 +54,7 @@
 	.navigation {
 		height: 60px;
 		background-color: #111;
+		width: 240px;
 		color: white;
 		padding: 20px 20px;
 		display: flex;
@@ -66,6 +70,7 @@
 		overflow-y: auto;
 		max-width: 1280px;
 		margin: 0 auto;
+		padding: 24px;
 	}
 
 	.logo {

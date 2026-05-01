@@ -1,3 +1,7 @@
+<script>
+	import Profile from '$lib/components/Profile.svelte';
+</script>
+
 <div class="story">
 	<div class="column-1">
 		<div class="part">게임</div>
@@ -8,8 +12,7 @@
 	</div>
 	<div class="column-1">
 		<div class="part">
-			<span class="profile-picture" style="background-color: white; color: black;">북</span>
-			<span class="username">북극치타 🇰🇷</span>
+			<Profile />
 		</div>
 		<div class="story">
 			<div class="rating column-1">
@@ -107,7 +110,7 @@
 		text-align: left;
 		margin-bottom: 12px;
 		--border-color: #111;
-		--hover-color: #333;
+		--hover-color: #444;
 	}
 
 	.page-button-primary {
@@ -121,20 +124,6 @@
 		font-size: 48px;
 		font-weight: bold;
 		font-family: 'Futura', sans-serif;
-	}
-
-	.profile-picture {
-		width: 24px;
-		height: 24px;
-		background-color: #7f7f7f;
-		border-radius: 4px;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.username {
-		margin-left: 4px;
 	}
 
 	.rating {
