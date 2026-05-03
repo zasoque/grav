@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS grav;
 CREATE DATABASE grav;
 
 USE grav;
@@ -9,6 +10,16 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     last_online TIMESTAMP NULL,
     UNIQUE (username)
+);
+
+CREATE TABLE sessions (
+    id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    token VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    expires_at TIMESTAMP DEFAULT (CURRENT_TIMESTAMP + INTERVAL 30 DAY),
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    UNIQUE (token)
 );
 
 CREATE TABLE friendships (
