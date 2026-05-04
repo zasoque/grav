@@ -3,10 +3,12 @@
 </script>
 
 {#if user}
-	<span class="profile-picture" style="background-color: white; color: black;">
-		{user.username[0]}
-	</span>
-	<span class="username">{user.username} 🇰🇷</span>
+	<a href="/profile/{user.id}">
+		<span class="profile-picture" style="background-color: white; color: black;">
+			{user.username[0]}
+		</span>
+		<span class="username">{user.username} 🇰🇷</span>
+	</a>
 {/if}
 
 <style>
