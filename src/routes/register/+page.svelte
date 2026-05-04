@@ -1,15 +1,21 @@
 <script lang="ts">
 	import Cookies from 'js-cookie';
 
-	async function login(e) {
+	async function register(e) {
 		e.preventDefault();
 
 		const form = document.querySelector('form') as HTMLFormElement;
 		const formData = new FormData(form);
 		const username = formData.get('username') as string;
 		const password = formData.get('password') as string;
+		const passwordRe = (document.getElementById('password-re') as HTMLInputElement).value;
 
-		await fetch('/api/auth/login', {
+		if (password !== passwordRe) {
+			alert('비밀번호가 일치하지 않습니다.');
+			return;
+		}
+
+		await fetch('/api/auth/register', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -19,26 +25,21 @@
 			.then((response) => response.json())
 			.then((data) => {
 				if (data.success) {
-					Cookies.set('token', data.token, { expires: 30 });
-					window.location.href = '/';
+					window.location.href = '/login';
 				} else {
-					alert('로그인 실패: ' + data.message);
+					alert('회원가입 실패: ' + data.message);
 				}
 			})
 			.catch((error) => {
-				console.error('로그인 중 오류 발생:', error);
-				alert('로그인 중 오류가 발생했습니다. 다시 시도해주세요.');
+				console.error('회원가입 중 오류 발생:', error);
+				alert('회원가입 중 오류가 발생했습니다. 다시 시도해주세요.');
 			});
-	}
-
-	function register() {
-		window.location.href = '/register';
 	}
 </script>
 
-<div class="title">게임을 플레이하기 위해서 로그인해주세요.</div>
+<div class="title">아래 정보를 입력해서 회원가입해주세요.</div>
 <div class="form">
-	<form action="/api/auth/login" method="post" onsubmit={login}>
+	<form action="/api/auth/register" method="post" onsubmit={register}>
 		<div class="input-group">
 			<label for="username">아이디:</label>
 			<input type="text" id="username" name="username" required />
@@ -47,8 +48,11 @@
 			<label for="password">비밀번호:</label>
 			<input type="password" id="password" name="password" required />
 		</div>
-		<button type="submit">로그인</button>
-		<button onclick={register}>회원가입</button>
+		<div class="input-group">
+			<label for="password-re">비밀번호 확인:</label>
+			<input type="password" id="password-re" required />
+		</div>
+		<button type="submit">회원가입</button>
 	</form>
 </div>
 
