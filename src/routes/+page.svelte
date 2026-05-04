@@ -1,5 +1,8 @@
 <script>
 	import Profile from '$lib/components/Profile.svelte';
+
+	const { data } = $props();
+	const { me } = $derived(data);
 </script>
 
 <div class="story">
@@ -12,7 +15,7 @@
 	</div>
 	<div class="column-1">
 		<div class="part">
-			<Profile />
+			<Profile user={me} />
 		</div>
 		<div class="story">
 			<div class="rating column-1">

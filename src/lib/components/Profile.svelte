@@ -1,5 +1,13 @@
-<span class="profile-picture" style="background-color: white; color: black;">북</span>
-<span class="username">북극치타 🇰🇷</span>
+<script lang="ts">
+	const { user } = $props();
+</script>
+
+{#if user}
+	<span class="profile-picture" style="background-color: white; color: black;">
+		{user.username[0]}
+	</span>
+	<span class="username">{user.username} 🇰🇷</span>
+{/if}
 
 <style>
 	.profile-picture {

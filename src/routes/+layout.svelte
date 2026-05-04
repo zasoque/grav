@@ -2,7 +2,8 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import Profile from '$lib/components/Profile.svelte';
 
-	let { children } = $props();
+	let { children, data } = $props();
+	const { me } = $derived(data);
 </script>
 
 <svelte:head>
@@ -37,7 +38,18 @@
 			<div class="link"><a href="/play">플레이</a></div>
 		</div>
 		<div class="footbar">
-			<Profile />
+			{#if me}
+				<div>
+					<a href="/logout">로그아웃</a>
+				</div>
+				<div>
+					<Profile user={me} />
+				</div>
+			{:else}
+				<div>
+					<a href="/login">로그인</a>
+				</div>
+			{/if}
 		</div>
 	</div>
 	<div class="content">
@@ -88,5 +100,11 @@
 
 	.link {
 		font-size: 1.2em;
+	}
+
+	.footbar {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
 	}
 </style>
