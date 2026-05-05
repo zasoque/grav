@@ -158,4 +158,23 @@
 		flex-direction: column;
 		gap: 12px;
 	}
+
+	@media (max-width: 768px) {
+		.container {
+			flex-direction: column;
+			height: 100vh;
+			overflow: hidden;
+		}
+
+		.navigation {
+			width: 100%;
+			height: auto;
+			position: relative;
+		}
+
+		.content {
+			max-width: none;
+			padding: 12px;
+		}
+	}
 </style>

@@ -3,5 +3,8 @@ import { defineConfig } from 'vite';
 
 // vite.config.ts
 export default defineConfig({
-	plugins: [sveltekit()]
+	plugins: [sveltekit()],
+	server: {
+		allowedHosts: ['sch.shtelo.org']
+	}
 });
