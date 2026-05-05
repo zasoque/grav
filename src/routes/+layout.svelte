@@ -27,6 +27,57 @@
 		a:hover {
 			text-decoration: underline;
 		}
+
+		input {
+			background-color: #222;
+			color: white;
+			border: none;
+			padding: 12px;
+			border-radius: 8px;
+			box-sizing: border-box;
+			font-family: 'Diphylleia', serif;
+			font-size: 16px;
+			width: 100%;
+		}
+
+		button {
+			border: none;
+			background-color: #222;
+			transform: translateY(-4px);
+			border-bottom: 4px solid var(--border-color);
+			border-top: 0 solid transparent;
+			transition:
+				transform 0.2s,
+				border-bottom 0.2s,
+				border-top 0.2s,
+				background-color 0.2s;
+			font-family: 'Diphylleia', serif;
+			font-weight: bold;
+			width: 100%;
+			padding: 24px;
+			font-size: 16px;
+			color: white;
+			border-radius: 8px;
+			cursor: pointer;
+			box-sizing: border-box;
+			text-align: left;
+			margin-bottom: 12px;
+			--border-color: #111;
+			--hover-color: #444;
+		}
+
+		button:hover {
+			transform: translateY(-2px);
+			border-bottom: 2px solid var(--border-color);
+			border-top: 2px solid transparent;
+			background-color: var(--hover-color);
+		}
+
+		button:active {
+			transform: translateY(0);
+			border-bottom: 0 solid var(--border-color);
+			border-top: 4px solid transparent;
+		}
 	</style>
 	<link rel="icon" href={favicon} />
 </svelte:head>
