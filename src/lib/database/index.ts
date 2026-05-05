@@ -1,6 +1,5 @@
 import dotenv from 'dotenv';
 import { SQL } from 'bun';
-
 dotenv.config();
 
 export const db = new SQL({
