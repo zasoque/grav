@@ -31,7 +31,7 @@
 					text-anchor="middle"
 					dominant-baseline="central"
 					font-size="24"
-					fill={(i + j + size + 1) % 2 == 0 ? BOARD_WHITE : BOARD_YELLOW}
+					fill="black"
 					font-family="inherit"
 				>
 					{size - j}
@@ -43,8 +43,8 @@
 					y={j * 128 + 128 - 24}
 					text-anchor="middle"
 					dominant-baseline="central"
-					font-size="24"
-					fill={(i + j + size + 1) % 2 == 0 ? BOARD_WHITE : BOARD_YELLOW}
+					font-size={24}
+					fill="black"
 					font-family="inherit"
 				>
 					{String.fromCharCode(97 + i)}
@@ -52,7 +52,7 @@
 			{/if}
 		{/each}
 	{/each}
-	{#if gravjulien.last}
+	{#if gravjulien.last && gravjulien.last.x !== null && gravjulien.last.y !== null}
 		<rect
 			x={gravjulien.last.x * 128}
 			y={gravjulien.last.y * 128}

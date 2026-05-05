@@ -42,7 +42,7 @@ CREATE TABLE friend_requests (
     UNIQUE (sender_id, receiver_id)
 );
 
-CREATE TABLE game (
+CREATE TABLE games (
     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     owner INTEGER NOT NULL,
     size INTEGER NOT NULL,
@@ -51,6 +51,8 @@ CREATE TABLE game (
     area_max INTEGER NOT NULL,
     distance_min INTEGER NOT NULL,
     distance_max INTEGER NOT NULL,
+    turn_timeout INTEGER NOT NULL,
+    total_timeout INTEGER NOT NULL,
     state ENUM('waiting', 'playing', 'finished', 'closed') NOT NULL DEFAULT 'waiting',
     current_turn_index INTEGER NULL,
     consecutive_passes INTEGER NOT NULL DEFAULT 0,
@@ -63,8 +65,9 @@ CREATE TABLE game (
 CREATE TABLE player (
     game_id INTEGER NOT NULL,
     user_id INTEGER NOT NULL,
+    timeout_left INTEGER NOT NULL,
     joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (game_id) REFERENCES game(id),
+    FOREIGN KEY (game_id) REFERENCES games(id),
     FOREIGN KEY (user_id) REFERENCES users(id),
     PRIMARY KEY (game_id, user_id)
 );
@@ -77,6 +80,6 @@ CREATE TABLE game_gravs (
     user_id INTEGER NOT NULL,
     is_removed BOOLEAN NOT NULL DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (game_id) REFERENCES game(id),
+    FOREIGN KEY (game_id) REFERENCES games(id),
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
