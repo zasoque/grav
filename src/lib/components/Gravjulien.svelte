@@ -2,9 +2,10 @@
 	import { getContrastColor } from '$lib/utils/color';
 	import { BOARD_YELLOW, BOARD_WHITE, STONE_STROKE } from '$lib/consts/colors';
 
-	const { gravjulien } = $props();
+	const { gravjulien = { size: 15, grasooshas: [] } } = $props();
 
 	const { size, grasooshas } = $derived(gravjulien);
+	console.log(grasooshas);
 </script>
 
 <svg
@@ -20,8 +21,8 @@
 			<rect
 				x={i * 128}
 				y={j * 128}
-				width="128"
-				height="128"
+				width="256"
+				height="256"
 				fill={(i + j + size + 1) % 2 == 0 ? BOARD_YELLOW : BOARD_WHITE}
 			/>
 			{#if i === 0}
@@ -74,7 +75,7 @@
 				/>
 				<text
 					x={grasoosha.x * 128 + 64}
-					y={grasoosha.y * 128 + 64}
+					y={grasoosha.y * 128 + 62}
 					text-anchor="middle"
 					dominant-baseline="central"
 					font-size="48"

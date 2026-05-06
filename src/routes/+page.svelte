@@ -8,12 +8,6 @@
 <div class="story">
 	<div class="column-1">
 		<div class="part">게임</div>
-		<!--
-		<button class="page-button page-button-primary button-animation">빠른 매치</button>
-		<button class="page-button button-animation">사용자 지정 게임</button>
-		<button class="page-button button-animation">게임 탐색</button>
-		<button class="page-button button-animation">혼자서 플레이</button>
-    -->
 		<a href="/games/new">
 			<button>방 만들기</button>
 		</a>
@@ -25,11 +19,11 @@
 		<div class="story">
 			<div class="rating column-1">
 				<div>레이팅</div>
-				<div class="big-number">1,293</div>
+				<div class="big-number number">1,293</div>
 			</div>
 			<div class="rating column-1">
 				<div>승률</div>
-				<div class="big-number">.592</div>
+				<div class="big-number number">.592</div>
 			</div>
 		</div>
 	</div>
@@ -81,8 +75,6 @@
 
 	.big-number {
 		font-size: 48px;
-		font-weight: bold;
-		font-family: 'Futura', sans-serif;
 	}
 
 	.rating {

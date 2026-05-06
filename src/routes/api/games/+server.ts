@@ -1,5 +1,5 @@
 import { verifyToken } from '$lib/database/auth';
-import { createGame, cleanWaitingGames } from '$lib/database/game';
+import { createGame, cleanWaitingGames, getWaitingGames } from '$lib/database/game';
 import { json, type RequestHandler } from '@sveltejs/kit';
 
 export const POST: RequestHandler = async ({ request }) => {
@@ -87,4 +87,8 @@ export const POST: RequestHandler = async ({ request }) => {
 	);
 
 	return json({ success: true, message: 'Game created successfully', game });
+};
+
+export const GET: RequestHandler = async () => {
+	return json({ success: true, games: await getWaitingGames() });
 };

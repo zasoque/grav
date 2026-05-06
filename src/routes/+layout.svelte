@@ -10,6 +10,10 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Diphylleia&display=swap" rel="stylesheet" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap"
+		rel="stylesheet"
+	/>
 	<style>
 		body {
 			margin: 0;
@@ -77,6 +81,10 @@
 			transform: translateY(0);
 			border-bottom: 0 solid var(--border-color);
 			border-top: 4px solid transparent;
+		}
+
+		.number {
+			font-family: 'Special Gothic Expanded One', sans-serif;
 		}
 	</style>
 	<link rel="icon" href={favicon} />

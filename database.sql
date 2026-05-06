@@ -7,6 +7,7 @@ CREATE TABLE users (
     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
+    color VARCHAR(7) NOT NULL DEFAULT '#ffffff',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     last_online TIMESTAMP NULL,
     UNIQUE (username)
@@ -44,7 +45,7 @@ CREATE TABLE friend_requests (
 
 CREATE TABLE games (
     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    owner INTEGER NOT NULL,
+    owner_id INTEGER NOT NULL,
     size INTEGER NOT NULL,
     sequence_max INTEGER NOT NULL,
     area_size INTEGER NOT NULL,
@@ -59,10 +60,10 @@ CREATE TABLE games (
     password VARCHAR(255) NULL,
     max_players INTEGER NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (owner) REFERENCES users(id)
+    FOREIGN KEY (owner_id) REFERENCES users(id)
 );
 
-CREATE TABLE player (
+CREATE TABLE players (
     game_id INTEGER NOT NULL,
     user_id INTEGER NOT NULL,
     timeout_left INTEGER NOT NULL,
@@ -72,7 +73,7 @@ CREATE TABLE player (
     PRIMARY KEY (game_id, user_id)
 );
 
-CREATE TABLE game_gravs (
+CREATE TABLE game_grasooshas (
     id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     game_id INTEGER NOT NULL,
     x INTEGER NOT NULL,
@@ -83,3 +84,4 @@ CREATE TABLE game_gravs (
     FOREIGN KEY (game_id) REFERENCES games(id),
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+
