@@ -1,11 +1,9 @@
-import { redirect, type ServerLoad } from '@sveltejs/kit';
+import { type ServerLoad } from '@sveltejs/kit';
 
-export const load: ServerLoad = async ({ cookies, fetch, request }) => {
+export const load: ServerLoad = async ({ cookies, fetch }) => {
 	const token = cookies.get('token');
 	if (!token) {
-		if (!request.url.endsWith('/login') && !request.url.endsWith('/register')) {
-			return redirect(301, '/login');
-		}
+		return;
 	}
 
 	const { me } = await fetch('/api/auth/me', {
